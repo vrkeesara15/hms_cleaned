@@ -1,0 +1,12 @@
+ALTER TABLE `workorders` ADD `cus_mobile` VARCHAR(15) NOT NULL AFTER `barrower_name`, ADD `cus_pan` VARCHAR(15) NOT NULL AFTER `cus_mobile`, ADD `cus_address` TEXT NOT NULL AFTER `cus_pan`, ADD `date_of_sanction` TEXT NOT NULL AFTER `cus_address`, ADD `cus_loan_amount` DOUBLE NOT NULL AFTER `date_of_sanction`, ADD `outstanding_amount` DOUBLE NOT NULL AFTER `cus_loan_amount`, ADD `irregular_amount` DOUBLE NOT NULL AFTER `outstanding_amount`, ADD `account_status` TEXT NOT NULL AFTER `irregular_amount`, ADD `npa_date` TEXT NOT NULL AFTER `account_status`, ADD `customer_file` TEXT NOT NULL AFTER `npa_date`;
+
+
+ALTER TABLE `workorders` CHANGE `date_of_sanction` `date_of_sanction` DATE NOT NULL;
+
+ALTER TABLE `workorders` CHANGE `npa_date` `npa_date` DATE NOT NULL;
+
+ALTER TABLE `workorders` ADD `make_company` VARCHAR(150) NOT NULL AFTER `work_order_doc`, ADD `year_of_make` YEAR NOT NULL AFTER `make_company`, ADD `rc_number` VARCHAR(150) NOT NULL AFTER `year_of_make`, ADD `insurance_company` VARCHAR(150) NOT NULL AFTER `rc_number`, ADD `insurance_expiry` TEXT NOT NULL AFTER `insurance_company`;
+
+ALTER TABLE `workorders` CHANGE `insurance_expiry` `insurance_expiry` DATETIME NOT NULL;
+
+ALTER TABLE `seize_form` ADD `seizer_guidelines_followed` ENUM('y','n') NOT NULL DEFAULT 'y' AFTER `stock_yard_panchanama`, ADD `inventory` TEXT NOT NULL AFTER `seizer_guidelines_followed`;

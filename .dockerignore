@@ -1,0 +1,5 @@
+.git
+application/cache/*
+application/logs/*
+application/vendor/
+node_modules
